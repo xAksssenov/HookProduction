@@ -31,6 +31,7 @@ const props = defineProps<{
     &__text {
         @include font(2.3rem, 500, 34.39px);
 
+        width: fit-content;
         letter-spacing: 2%;
         height: 3.4rem;
     }

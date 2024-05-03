@@ -20,7 +20,7 @@ textarea {
 
 html {
     font-size: 62.5%;
-    background: linear-gradient(rgba(255 255 255 / 30%), rgba(255 255 255 / 0%));
+    background: linear-gradient(rgba(255 255 255 / 30%), rgba(255 255 255 / 0%)) no-repeat;
     background-color: rgba(238 231 225 / 100%);
 }
 
@@ -28,6 +28,7 @@ body {
     max-width: 1920px;
     color: rgba(54 70 112 / 100%);
     align-self: center;
+    margin: auto;
 }
 
 h1 {

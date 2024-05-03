@@ -87,9 +87,9 @@ const filteredData = computed(() => {
     background-color: rgba(145 16 22 / 100%);
     transition: background-color 0.3s ease;
 
-        &:hover {
-            background-color: rgba(145 16 22 / 90%);
-        }
+    &:hover {
+        background-color: rgba(145 16 22 / 90%);
+    }
 }
 
 .main {

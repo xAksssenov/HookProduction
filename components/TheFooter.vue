@@ -30,7 +30,7 @@
         gap: 2rem;
 
         &--text {
-            @include font(1.4rem, 400, 18.2px);
+            @include font(1.4rem, 400, 130%);
 
             color: rgba(145 16 22 / 100%);
         }
