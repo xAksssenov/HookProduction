@@ -188,4 +188,68 @@ const filteredData = computed(() => {
         margin-top: 11.5rem;
     }
 }
+
+@media (max-width: 500px) {
+    .main {
+        margin: 4rem 2rem 0;
+
+        &__title {
+            @include font(4rem, 500, 110%);
+
+            width: 100%;
+            text-align: center;
+        }
+
+        &__buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+
+            &--item {
+                @include font(1.4rem, 500);
+
+                padding: 0.8rem;
+            }
+        }
+
+        &__input {
+            gap: 1.8rem;
+            margin-top: 1.6rem;
+            height: fit-content;
+
+            input {
+                @include font(1.6rem, 500, 21.78px);
+
+                padding: 1.2rem 1.8rem;
+            }
+
+            &--button {
+                @include font(1.6rem, 500);
+
+                padding: 1.2rem 1.8rem;
+                height: fit-content;
+            }
+        }
+
+        &__tags {
+            flex-direction: column;
+            gap: 1rem;
+
+            &--item {
+                @include font(1.4rem, 500, 149.5%);
+
+                height: fit-content;
+                width: fit-content;
+                padding: 0.4rem 1rem;
+            }
+        }
+
+        &__card {
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+    }
+}
 </style>

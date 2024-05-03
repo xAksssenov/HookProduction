@@ -36,4 +36,20 @@ const props = defineProps<{
         height: 3.4rem;
     }
 }
+
+@media (max-width: 500px) {
+    .card {
+        align-items: center;
+        gap: 1.2rem;
+
+        &__img {
+            width: 28rem;
+            height: 13rem;
+        }
+
+        &__text {
+            @include font(1.8rem, 500, 10px);
+        }
+    }
+}
 </style>

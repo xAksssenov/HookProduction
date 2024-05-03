@@ -88,4 +88,33 @@
         }
     }
 }
+
+@media (max-width: 500px) {
+    .header {
+        margin: 2rem 2rem 0;
+        gap: 2rem;
+
+        &__naming {
+            gap: 1.4rem;
+            padding: 0;
+
+            &--name {
+                font-size: 1.4rem;
+            }
+        }
+
+        &__button {
+            gap: 1rem;
+            padding: 0.8rem 1.2rem;
+        }
+
+        &__login {
+            gap: 1rem;
+
+            &--text {
+                @include font(1.4rem, 500);
+            }
+        }
+    }
+}
 </style>

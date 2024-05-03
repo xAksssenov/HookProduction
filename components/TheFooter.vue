@@ -37,4 +37,18 @@
         }
     }
 }
+
+@media (max-width: 500px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        margin: 3rem 2rem 1.5rem;
+
+        &__info {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+}
 </style>
