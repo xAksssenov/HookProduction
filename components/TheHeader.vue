@@ -52,6 +52,11 @@
         background-color: white;
         box-shadow: rgba(0 0 0 / 5%);
         border-radius: 1.6rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: rgba(255 255 255 / 90%);
+        }
 
         &--avatar {
             width: 3.6rem;
