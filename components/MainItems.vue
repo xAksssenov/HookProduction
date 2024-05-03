@@ -15,9 +15,29 @@
         </section>
 
         <section class="main__input">
-            <input type="text" placeholder="Услуга или специалист" />
+            <input v-model="searchText" type="text" placeholder="Услуга или специалист" />
 
-            <button class="main__input--button">Найти</button>
+            <div v-if="optionsVisible" class="main__options">
+                <p
+                    v-for="option in suggestedOptions"
+                    :key="option"
+                    class="main__options--text"
+                    @click="selectOption(option)"
+                >
+                    <span
+                        v-for="char in option.split('')"
+                        :key="char"
+                        :index="char"
+                        :class="{
+                            weight: searchText.toLowerCase().includes(char.toLowerCase()),
+                        }"
+                    >
+                        {{ char }}
+                    </span>
+                </p>
+            </div>
+
+            <button class="main__input--button" @click="clearSearch">Найти</button>
         </section>
 
         <section class="main__tags">
@@ -77,6 +97,35 @@ const toggleButton = (type: string) => {
 const filteredData = computed(() => {
     return selectedButton.value === 'vacancies' ? data.slice() : data.slice().reverse()
 })
+
+const searchText = ref('')
+const optionsVisible = ref(false)
+
+let suggestedOptions = ['Reels maker', 'Reels съемка', 'Reels maker обучение', 'Reels монтаж']
+
+watch(searchText, (value) => {
+    if (value.trim() !== '') {
+        optionsVisible.value = true
+        const text = value.toLowerCase().trim()
+        suggestedOptions = [
+            'Reels maker',
+            'Reels съемка',
+            'Reels maker обучение',
+            'Reels монтаж',
+        ].filter((option) => option.toLowerCase().includes(text))
+    } else {
+        optionsVisible.value = false
+    }
+})
+
+const selectOption = (option: string) => {
+    searchText.value = option
+    optionsVisible.value = false
+}
+
+function clearSearch() {
+    searchText.value = ''
+}
 </script>
 
 <style scoped lang="scss">
@@ -126,9 +175,10 @@ const filteredData = computed(() => {
         gap: 2.4rem;
         margin-top: 1.7rem;
         height: 7rem;
+        position: relative;
 
         input {
-            @include font(1.8rem, 500, 21.78px);
+            @include font(1.8rem, 700, 21.78px);
 
             color: rgba(54 70 112 / 100%);
             width: 100%;
@@ -139,6 +189,7 @@ const filteredData = computed(() => {
             border-radius: 1.4rem;
 
             &::placeholder {
+                font-weight: 500;
                 color: rgba(146 146 157 / 100%);
             }
         }
@@ -155,6 +206,39 @@ const filteredData = computed(() => {
             &:hover {
                 background-color: rgba(145 16 22 / 90%);
                 transform: translateY(-1px);
+            }
+        }
+    }
+
+    &__options {
+        position: absolute;
+        width: calc(100% - 21.2rem);
+        top: 7rem;
+        border-radius: 1.4rem;
+        background-color: white;
+
+        &--text {
+            letter-spacing: 0.01rem;
+            padding: 1.1rem 1.6rem;
+
+            &:hover {
+                background-color: rgba(241 241 245 / 100%);
+            }
+
+            &:first-child {
+                border-radius: 1.4rem 1.4rem 0 0;
+            }
+
+            &:last-child {
+                border-radius: 0 0 1.4rem 1.4rem;
+            }
+
+            span {
+                @include font(1.8rem, 500, 21.78px);
+            }
+
+            .weight {
+                font-weight: 700;
             }
         }
     }
@@ -219,7 +303,7 @@ const filteredData = computed(() => {
             height: fit-content;
 
             input {
-                @include font(1.6rem, 500, 21.78px);
+                @include font(1.6rem, 700, 21.78px);
 
                 padding: 1.2rem 1.8rem;
             }
@@ -249,6 +333,19 @@ const filteredData = computed(() => {
             flex-direction: column;
             justify-content: center;
             margin-top: 1.6rem;
+        }
+
+        &__options {
+            width: calc(100% - 10.2rem);
+            top: 5rem;
+
+            &--text {
+                padding: 1rem 1.4rem;
+
+                span {
+                    @include font(1.6rem, 500, 21.78px);
+                }
+            }
         }
     }
 }
