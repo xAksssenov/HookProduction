@@ -18,10 +18,48 @@
             <span class="main__tags--item">Создание гайдов</span>
             <span class="main__tags--item">Курьер</span>
         </section>
+
+        <section class="main__card">
+            <ProductCard
+                v-for="item in data"
+                :key="item.index"
+                :index="item.index"
+                :src="item.src"
+                :alt="item.alt"
+                :text="item.text"
+            />
+        </section>
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const data = [
+    {
+        index: 1,
+        src: '/photo1.png',
+        alt: 'photo1',
+        text: 'Копирайтер',
+    },
+    {
+        index: 2,
+        src: '/photo2.png',
+        alt: 'photo2',
+        text: 'Механик',
+    },
+    {
+        index: 3,
+        src: '/photo3.png',
+        alt: 'photo3',
+        text: 'Шеф-повар',
+    },
+    {
+        index: 4,
+        src: '/photo4.png',
+        alt: 'photo4',
+        text: 'Адвокат',
+    },
+]
+</script>
 
 <style scoped lang="scss">
 @use 'assets/scss/fonts' as *;
@@ -46,6 +84,11 @@
             padding: 1rem;
             border-radius: 1.4rem;
             background-color: rgba(145 16 22 / 100%);
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: rgba(145 16 22 / 90%);
+            }
         }
     }
 
@@ -90,6 +133,12 @@
             background-color: rgba(250 248 246 / 100%);
             cursor: pointer;
         }
+    }
+
+    &__card {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 11.5rem;
     }
 }
 </style>
