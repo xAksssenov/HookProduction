@@ -248,7 +248,7 @@ const filteredData = computed(() => {
         &__card {
             flex-direction: column;
             justify-content: center;
-            margin-top: 4rem;
+            margin-top: 1.6rem;
         }
     }
 }
