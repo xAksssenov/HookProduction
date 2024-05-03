@@ -85,7 +85,7 @@ const filteredData = computed(() => {
 .choice {
     color: white !important;
     background-color: rgba(145 16 22 / 100%);
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 
     &:hover {
         background-color: rgba(145 16 22 / 90%);
@@ -113,7 +113,11 @@ const filteredData = computed(() => {
             letter-spacing: 0.02rem;
             padding: 1rem;
             border-radius: 1.4rem;
-            transition: background-color 0.2s ease;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: translateY(-1px);
+            }
         }
     }
 
@@ -146,10 +150,11 @@ const filteredData = computed(() => {
             color: white;
             border-radius: 1.4rem;
             background-color: rgba(145 16 22 / 100%);
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
 
             &:hover {
                 background-color: rgba(145 16 22 / 90%);
+                transform: translateY(-1px);
             }
         }
     }
@@ -162,15 +167,17 @@ const filteredData = computed(() => {
         &--item {
             @include font(1.8rem, 500, 149.5%);
 
+            letter-spacing: 0.036rem;
             height: 2.7rem;
             padding: 0.45rem 1.2rem;
             border-radius: 10rem;
             background-color: rgba(250 248 246 / 100%);
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
 
             &:hover {
                 background-color: rgba(250 248 246 / 90%);
+                transform: translateY(-1px);
             }
         }
     }

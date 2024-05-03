@@ -33,6 +33,7 @@
             @include font(1.4rem, 400, 130%);
 
             color: rgba(145 16 22 / 100%);
+            cursor: pointer;
         }
     }
 }

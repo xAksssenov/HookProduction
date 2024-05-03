@@ -30,6 +30,7 @@
         display: flex;
         align-items: center;
         gap: 1.6rem;
+        padding: 0.8rem;
 
         &--logo {
             width: 4.8rem;
@@ -52,10 +53,11 @@
         background-color: white;
         box-shadow: rgba(0 0 0 / 5%);
         border-radius: 1.6rem;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
 
         &:hover {
             background-color: rgba(255 255 255 / 90%);
+            transform: translateY(-1px);
         }
 
         &--avatar {
@@ -67,16 +69,22 @@
     &__login {
         display: flex;
         align-items: center;
-        gap: 3.6rem;
+        gap: 3.1rem;
 
         &--text {
-            @include font(1.6rem, 500, 19.36px);
+            @include font(1.6rem, 500);
 
+            letter-spacing: 0.02rem;
             color: rgba(54 70 112 / 100%);
         }
 
         &--icon {
-            width: 13.39px;
+            width: 2.4rem;
+            height: 2.4rem;
+
+            path {
+                width: 13.39px;
+            }
         }
     }
 }
