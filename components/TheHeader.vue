@@ -24,6 +24,7 @@
 .header {
     display: flex;
     justify-content: space-between;
+    margin: 3.6rem 9rem 0 8.1rem;
 
     &__naming {
         display: flex;
@@ -36,9 +37,9 @@
         }
 
         &--name {
-            @include font(2.5rem, 400, 30.88px);
-
-            font-family: Inter, sans-serif;
+            font-family: ProstoOne, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 400;
             color: rgba(145 16 22 / 100%);
         }
     }

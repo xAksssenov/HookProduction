@@ -17,7 +17,7 @@
 .footer {
     display: flex;
     justify-content: space-between;
-    margin-top: 11.5rem;
+    margin: 11.5rem 9rem 2.7rem;
 
     &__text {
         @include font(1.4rem, 400, 18.2px);

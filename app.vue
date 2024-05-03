@@ -5,6 +5,8 @@
 </template>
 
 <style lang="scss">
+@use 'assets/scss/fonts' as *;
+
 * {
     padding: 0;
     margin: 0;
@@ -18,15 +20,14 @@ textarea {
 
 html {
     font-size: 62.5%;
-    overflow-x: hidden;
+    background: linear-gradient(rgba(255 255 255 / 30%), rgba(255 255 255 / 0%));
     background-color: rgba(238 231 225 / 100%);
-    transition: all 0.5s ease-in-out;
 }
 
 body {
     max-width: 1920px;
-    margin: 3.6rem 9rem 2.7rem;
     color: rgba(54 70 112 / 100%);
+    align-self: center;
 }
 
 h1 {

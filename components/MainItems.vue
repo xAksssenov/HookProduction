@@ -3,8 +3,15 @@
         <h1 class="main__title">Биржа вакансий и резюме</h1>
 
         <section class="main__buttons">
-            <button class="main__buttons--item">Вакансии</button>
-            <button class="main__buttons--item">Резюме</button>
+            <button
+                v-for="(button, type) in buttonTypes"
+                :key="type"
+                class="main__buttons--item"
+                :class="{ choice: selectedButton === type }"
+                @click="toggleButton(type)"
+            >
+                {{ button }}
+            </button>
         </section>
 
         <section class="main__input">
@@ -21,7 +28,7 @@
 
         <section class="main__card">
             <ProductCard
-                v-for="item in data"
+                v-for="item in filteredData"
                 :key="item.index"
                 :index="item.index"
                 :src="item.src"
@@ -59,16 +66,34 @@ const data = [
         text: 'Адвокат',
     },
 ]
+
+const buttonTypes = { vacancies: 'Вакансии', resumes: 'Резюме' }
+const selectedButton = ref('vacancies')
+
+const toggleButton = (type: string) => {
+    selectedButton.value = type
+}
+
+const filteredData = computed(() => {
+    return selectedButton.value === 'vacancies' ? data.slice() : data.slice().reverse()
+})
 </script>
 
 <style scoped lang="scss">
 @use 'assets/scss/fonts' as *;
 
+.choice {
+    color: white !important;
+    background-color: rgba(145 16 22 / 100%);
+}
+
 .main {
-    margin-top: 12.5rem;
+    margin: 12.5rem 9rem 0;
 
     &__title {
-        @include font(6.2rem, 500, 80.6px);
+        @include font(6.2rem, 500, 130%);
+
+        width: fit-content;
     }
 
     &__buttons {
@@ -77,18 +102,13 @@ const data = [
         margin-top: 1.8rem;
 
         &--item {
-            @include font(1.6rem, 500, 19.36px);
+            @include font(1.6rem, 500, auto);
 
-            color: white;
+            color: rgba(145 16 22 / 100%);
             letter-spacing: 0.02rem;
             padding: 1rem;
             border-radius: 1.4rem;
-            background-color: rgba(145 16 22 / 100%);
             transition: background-color 0.2s ease;
-
-            &:hover {
-                background-color: rgba(145 16 22 / 90%);
-            }
         }
     }
 
@@ -96,6 +116,7 @@ const data = [
         display: flex;
         gap: 2.4rem;
         margin-top: 1.7rem;
+        height: 7rem;
 
         input {
             @include font(1.8rem, 500, 21.78px);
@@ -109,7 +130,7 @@ const data = [
         }
 
         &--button {
-            @include font(2rem, 500, 24.2px);
+            @include font(2rem, 500, auto);
 
             padding: 2.3rem 6.35rem;
             color: white;
@@ -124,9 +145,8 @@ const data = [
         margin-top: 1.6rem;
 
         &--item {
-            @include font(1.8rem, 500, 26.91px);
+            @include font(1.8rem, 500, 149.5%);
 
-            letter-spacing: 2%;
             height: 2.7rem;
             padding: 0.45rem 1.2rem;
             border-radius: 10rem;
