@@ -19,6 +19,8 @@
 <script setup lang="ts"></script>
 
 <style scoped lang="scss">
+@use 'assets/scss/fonts' as *;
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -34,8 +36,9 @@
         }
 
         &--name {
+            @include font(2.5rem, 400, 30.88px);
+
             font-family: Inter, sans-serif;
-            font-size: 2.5rem;
             color: rgba(145 16 22 / 100%);
         }
     }
@@ -61,7 +64,9 @@
         gap: 3.6rem;
 
         &--text {
-            font-size: 1.6rem;
+            @include font(1.6rem, 500, 19.36px);
+
+            color: rgba(54 70 112 / 100%);
         }
 
         &--icon {

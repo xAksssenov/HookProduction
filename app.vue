@@ -24,9 +24,9 @@ html {
 }
 
 body {
-    font-family: Inter, sans-serif;
     max-width: 1920px;
     margin: 3.6rem 9rem 2.7rem;
+    color: rgba(54 70 112 / 100%);
 }
 
 h1 {
@@ -59,9 +59,8 @@ input {
     box-sizing: border-box;
     background: none;
     border: none;
-    border-radius: 0.15rem;
-    outline: none;
     border-radius: 1.4rem;
+    outline: none;
 }
 
 button {
@@ -70,9 +69,7 @@ button {
     text-align: center;
     background: none;
     border: none;
-    border-radius: 0.2rem;
     outline: none;
     cursor: pointer;
-    transition: 100ms;
 }
 </style>
