@@ -14,7 +14,7 @@
             </button>
         </section>
 
-        <section class="main__input">
+        <form class="main__input" @submit.prevent="">
             <input v-model="searchText" type="text" placeholder="Услуга или специалист" />
 
             <div v-if="optionsVisible" class="main__options">
@@ -38,7 +38,7 @@
             </div>
 
             <button class="main__input--button" @click="clearSearch">Найти</button>
-        </section>
+        </form>
 
         <section class="main__tags">
             <span class="main__tags--item">Копирайтер</span>
